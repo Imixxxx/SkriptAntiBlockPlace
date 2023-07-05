@@ -1,0 +1,23 @@
+on block place:
+ set {blockloc.%player%} to location of event-block
+ set {playerloc.%player%} to location of player
+ set {playerx.%player%} to player's x position
+ set {playery.%player%} to player's y position
+ set {playerz.%player%} to player's z position
+ set {blockx.%player%} to event-block's x position
+ set {blocky.%player%} to event-block's y position
+ set {blockz.%player%} to event-block's z position
+ set {blockx.%player%} to floor({blockx.%player%})
+ set {blocky.%player%} to floor({blocky.%player%})
+ set {blockz.%player%} to floor({blockz.%player%})
+ set {playerx.%player%} to floor({playerx.%player%})
+ set {playery.%player%} to floor({playery.%player%})
+ set {playerz.%player%} to floor({playerz.%player%})
+ if {blockx.%player%} = {playerx.%player%}:
+  if {blockz.%player%} = {playerz.%player%}:
+   set {oldy.%player%} to player's y position
+   set {oldpos.%player%} to location of player
+   wait 0.1 seconds 
+   set {newy.%player%} to player's y position
+   if {newy.%player%} > {oldy.%player%}:
+    teleport player to {oldpos.%player%}
